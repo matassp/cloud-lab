@@ -11,8 +11,8 @@ import (
 func Sha256Handler(w http.ResponseWriter, r *http.Request) {
 	username := mux.Vars(r)["username"]
 	h, _ := hashes.GetHash("Sha256", username)
-	fmt.Fprint(w, h)
 	w.WriteHeader(http.StatusOK)
+	fmt.Fprint(w, h)
 }
 
 func GithubUsernameHandler(w http.ResponseWriter, r *http.Request) {
